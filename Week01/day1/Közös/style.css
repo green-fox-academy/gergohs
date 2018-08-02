@@ -1,0 +1,72 @@
+
+
+@font-face {
+    font-family: 'medium-content-serif-font';
+    font-weight: 400;
+    font-style: italic;
+    src: url('charter-400-italic') format('woff');
+}
+@font-face {
+    font-family: 'medium-content-sans-serif-font';
+    font-weight: 400;
+    font-style: italic;
+    src: url('marat-sans-300-italic') format('woff');
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: rgba( 0, 0, 0, .84);
+}
+
+h1 {
+    font-size: 34px;
+    margin-top: 39px;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 28px;
+    margin-top: 5px;
+    margin-bottom: 22px;
+
+}
+
+/* link színe: a color;  szöveg vastagsága: font-weight;sor magassága: line height */
+
+p   {
+       font-size: 18px;
+       text-align: center;
+       font-family: 'medium-content-sans-serif-font'; 
+    }
+
+h1, h2 {
+        text-align: center;
+font-family:  'medium-content-serif-font';
+}
+
+.container {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img{
+    width: 100%;
+}
+
+.red {background: red}
+.green {background: green;}
+.blue {background: blue}
+
+
+
+.red, .green, .blue 
+{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+
+}
+
