@@ -14,12 +14,7 @@ public class AnimalsAndLegs {
         int totalHenLegs = numberOfHens*2;
         int totalPigLegs = numberOfPigs*4;
 
-        //System.out.println(numberOfPigs);
-        //System.out.println(numberOfHens);
-        //System.out.println(numberOfHens*2);
-      //  System.out.println(numberOfPigs*4);
         System.out.println(" The total legs on the farm are: " + ((numberOfHens*2)+(numberOfPigs*4)));
-//        System.out.println(" The total legs on the farm are: " + totalHenLegs + totalPigLegs);
 
     }
 }
