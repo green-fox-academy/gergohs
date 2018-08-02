@@ -13,7 +13,7 @@ public class AverageOfInput {
             int numFive = num.nextInt();
 
             System.out.println("Sum :" + ( numOne+numTwo+numThree+numFour+numFive));
-            System.out.println("Average : "+(numOne+numTwo+numThree+numFour+numFive)/5);
+            System.out.println("Average : "+(numOne+numTwo+numThree+numFour+numFive)/5.0);
 
         }
     }
