@@ -3,34 +3,42 @@ import java.util.Scanner;
 public class DrawDiamond {
     public static void main(String[] args) {
 
-        //Scanner num = new Scanner(System.in);
+        Scanner num = new Scanner(System.in);
 
-        //int rn = num.nextInt();
-        int totalSor=4;
+        int totalSor = num.nextInt();
+        int kozepsoSor = (totalSor + 1) / 2;
         int sor;
-        int oszlop;
+        int space;
         int csillag;
 
-        for (sor = 1; sor <= totalSor; sor++) {             //addig megy, míg el nem éri a megadott számot, ez lesz az össz sorok száma
-            for (oszlop = 1; oszlop <= totalSor - sor; oszlop++) {     //annyi szóközt rajzoljon, amennyi a hátralévő sorok száma -1
+//gyémánt felső fele, a középvonalat is beleértve
+        //addig fut, amíg a sorok száma el nem éri a középső sort
+        for (sor = 1; sor <= kozepsoSor; sor++) {
+
+            //space-t rajzol: középső sor-1 sorig csökken a space-ek száma soronként egyel
+            for (space = 1; space <= (kozepsoSor - sor); space++) {
                 System.out.print(" ");
             }
-            for (csillag = 1; csillag <= 2 * sor - 1; csillag++) {      //mennyi csillagot rajzoljon: aktuális sor száma * 2 - 1
+
+            // annyi csillagot rajzol, amennyi az (aktuális sor X 2-1)
+            for (csillag = 1; csillag <= (2 * sor - 1); csillag++) {
                 System.out.print("*");
             }
-            System.out.println();           //miután kirakta a szükséges space és csillagokat, ugorjon egy sort
+            System.out.println();
         }
-            for (sor = totalSor - 1; sor <= totalSor; sor--) {
-                for (oszlop = 1; oszlop <= totalSor - sor; oszlop++) {
-                    System.out.print(" ");
-                }
-                for (csillag = 1; csillag <= 2 * sor - 1; csillag++) {
-                    System.out.print("*");
-                }
-                System.out.println();
+// gyémánt alsó fele, a középvonal alatt
+        //addig fut, amíg a sorok száma a középső sor számánál egyel kevesebb
+        for (sor = 1; sor <= (kozepsoSor-1); sor++) {
+            //space-t rajzol, annyi space-t ammennyi az aktuális sor száma
+            for (space = 1; space <= sor; space++) {
+                System.out.print(" ");
             }
-
-
+            // csillagot rajzol, középsú sorból (5.) kivonva az aktuális sor számát, szorozva azt kettővel, mínusz egy
+            for (csillag = 1; csillag <= 2*(kozepsoSor-sor)-1; csillag++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
 
 
     }
