@@ -26,6 +26,8 @@ public class week2day1 {
 
         System.out.println("*********************************** excersie 4: Summing **********************************");
 
+        //not a perfect solution, i just give two numbers manually
+
         int a = 54;
         int b = 46;
 

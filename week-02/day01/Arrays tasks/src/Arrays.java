@@ -1,3 +1,5 @@
+import java.util.stream.IntStream;
+
 public class Arrays {
     public static void main(String[] args) {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>EXCERSIES: ARRAYS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
@@ -42,20 +44,29 @@ public class Arrays {
 
         System.out.println("*********************************** excersie:Matrix **********************************");
 
-        int [][] a = {{0,1,2,3},{0,1,2,3}};
+/*        int[][] a = {{0, 1, 2, 3}, {0, 1, 2, 3}};
 
-        for (int i=0; i<4 ; i++) {
-            for (int j=0; j<4; j++) {
+      for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 System.out.print(a[][]);
             }
             System.out.println();
-        }
+     } */
         System.out.println("*********************************** excersie: Double items **********************************");
 
 
-        int [] numList = {3,4,5,6,7};
-        int [] numList2 = new int [numList.length];
+        int[] numList = {3, 4, 5, 6, 7};
+        int[] numList2 = new int[numList.length];
 
+        System.out.println("*********************************** excersie: Sum all elements **********************************");
+
+        int[] ai = {3, 4, 5, 6, 7};
+
+        int sum = IntStream.of(ai).sum();
+
+        System.out.println(sum);
+
+        System.out.println("*********************************** excersie: Sum all elements **********************************");
 
     }
 }
