@@ -24,6 +24,15 @@ public class week2day1 {
         String typo2 = appendAFunc(typo);
         System.out.println(typo2);
 
+        System.out.println("*********************************** excersie 4: Summing **********************************");
+
+        int a = 54;
+        int b = 46;
+
+       System.out.println(summing(a,b));
+
+
+
     }
     // ide kellenek a függvények (MAIN függvény után)
 
@@ -51,6 +60,15 @@ public class week2day1 {
 
         return add2;
     }
+    //***********************************excersie 4: Summing ********************************************************
 
+
+    public static int summing (int a, int b) {
+
+        int sum = a+b;
+
+        return sum;
+
+    }
 
 }

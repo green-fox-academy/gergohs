@@ -50,6 +50,12 @@ public class Arrays {
             }
             System.out.println();
         }
+        System.out.println("*********************************** excersie: Double items **********************************");
+
+
+        int [] numList = {3,4,5,6,7};
+        int [] numList2 = new int [numList.length];
+
 
     }
 }
