@@ -18,9 +18,38 @@ public class Arrays {
         }
         System.out.println("***********************************excersie:Sum elements **********************************");
 
-        int [] r = {54, 23, 66, 12};
-        
-        System.out.println(r[2]+r[3]);
+        int[] r = {54, 23, 66, 12};
+
+        System.out.println(r[2] + r[3]);
+
+        System.out.println("***********************************excersie:Change element **********************************");
+
+        int[] s = {1, 2, 3, 8, 5, 6};
+        s[4] = 4;
+        System.out.println(s[4]);
+
+        System.out.println("***********************************excersie:Increment element **********************************");
+
+        int[] t = {1, 2, 3, 4, 5};
+        t[3] = t[3] + 1;
+        System.out.println(t[3]);
+
+        System.out.println("*********************************** excersie:Print elements **********************************");
+
+        int[] numbers = {4, 5, 6, 7};
+
+        System.out.println(java.util.Arrays.toString(numbers));
+
+        System.out.println("*********************************** excersie:Matrix **********************************");
+
+        int [][] a = {{0,1,2,3},{0,1,2,3}};
+
+        for (int i=0; i<4 ; i++) {
+            for (int j=0; j<4; j++) {
+                System.out.print(a[][]);
+            }
+            System.out.println();
+        }
 
     }
 }
