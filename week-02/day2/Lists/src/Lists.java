@@ -8,9 +8,11 @@ public class Lists {
                 ("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune"));
 
         System.out.println(putSaturn(planetList));
+
+
     }
 
-    private static ArrayList putSaturn(ArrayList planetList) {
+    private static ArrayList<String> putSaturn(ArrayList<String> planetList) {
 
         planetList.add(5, "Saturn");
 
