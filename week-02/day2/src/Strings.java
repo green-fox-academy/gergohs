@@ -18,6 +18,10 @@ public class Strings {
         System.out.println(url);
 
         System.out.println("*************************************** takes longer ***************************************");
-    
+
+        String quote = "Hofstadter's Law: It you expect, even when you take into account Hofstadter's Law.";
+
+       System.out.println(quote.replace("It you ", "It always takes longer than you "));
+
     }
 }
