@@ -20,11 +20,11 @@ public class Drawing {
             int x2 = randomStart.nextInt(140);
             int y2 = randomStart.nextInt(160);
 
-            squareMaker(graphics, x, y, x2, y2);
+            rectangleMaker(graphics, x, y, x2, y2);
         }
     }
 
-    public static void squareMaker(Graphics graphics, int x, int y, int x2, int y2) {
+    public static void rectangleMaker(Graphics graphics, int x, int y, int x2, int y2) {
 
         Random randomColor = new Random();                  //beállítja a random RGB színeket
         int red = randomColor.nextInt(255);
