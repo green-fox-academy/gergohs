@@ -12,37 +12,28 @@ public class Drawing {
         // draw four different size and color rectangles.
         // avoid code duplication.
 
-        Random randomStart = new Random();
-
-        int x = randomStart.nextInt(30);
-        int y = randomStart.nextInt(10);
-        int x2 = randomStart.nextInt(70);
-        int y2 = randomStart.nextInt(80);
 
         for (int i = 0; i < 4; i++) {
+            Random randomStart = new Random();         //random számokat ad meg az első négyzet kezdő koordinátáihoz
+            int x = randomStart.nextInt(180);   //a random számok a for cikluson belül minden körben új értéket kapnak
+            int y = randomStart.nextInt(180);
+            int x2 = randomStart.nextInt(140);
+            int y2 = randomStart.nextInt(160);
 
-            graphics.drawRect(x, y, x2, y2);
-
-            Random randomNum = new Random();
-            int rand = randomNum.nextInt(80);
-            int rand2 = randomNum.nextInt(40);
-
-            x = x + rand;
-            y = y + rand;
-            x2 = x2 + rand2;
-            y2 = y2 + rand2;
-
+            squareMaker(graphics, x, y, x2, y2);
         }
+    }
 
-        //int x = randomNum.nextInt();
-        //int y = randomNum.nextInt();
+    public static void squareMaker(Graphics graphics, int x, int y, int x2, int y2) {
 
-        //    int red = randomNum.nextInt();
-        //  int green = randomNum.nextInt();
-        //int blue = randomNum.nextInt();
+        Random randomColor = new Random();                  //beállítja a random RGB színeket
+        int red = randomColor.nextInt(255);
+        int green = randomColor.nextInt(255);
+        int blue = randomColor.nextInt(255);
 
-        //   graphics.setColor(new Color((red), (blue), (green)));
+        graphics.setColor(new Color(red, green, blue));
 
+        graphics.drawRect(x, y, x2, y2);
     }
 
 
