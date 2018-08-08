@@ -1,30 +1,18 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.Random;
+import java.util.Set;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Drawing {
+
     public static void mainDraw(Graphics graphics) {
-        // Create a line drawing function that takes 2 parameters:
-        // The x and y coordinates of the line's starting point
-        // and draws a 50 long horizontal line from that point.
-        // Draw 3 lines with that function. Use loop for that.
+        // Draw a green 10x10 square to the canvas' center.
 
-        Random randNum = new Random();
+        graphics.setColor(Color.green);
 
-        for (int i = 0; i < 3; i++) {
-
-            int x = randNum.nextInt(240);
-            int y = randNum.nextInt(240);
-
-            drawOneLine(graphics, x, y);
-        }
-    }
-
-    private static void drawOneLine(Graphics graphics, int x, int y) {
-        graphics.drawLine(x, y, x + 50, y);
+        graphics.drawRect ((WIDTH/2)-5, (HEIGHT/2)-5-25, 10,10 );
 
     }
 
@@ -46,6 +34,7 @@ public class Drawing {
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
             mainDraw(graphics);
+
         }
     }
 }
