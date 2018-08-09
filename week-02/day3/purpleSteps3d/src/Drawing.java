@@ -20,7 +20,7 @@ public class Drawing {
             a = a + 10;
         }
     }
-    
+
     public static void rectDrawer(Graphics graphics, int x, int y, int a) {
         graphics.setColor(new Color(152, 0, 173));
         graphics.fillRect(x, y, a, a);

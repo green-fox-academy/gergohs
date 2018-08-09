@@ -30,14 +30,10 @@ public class Drawing {
         graphics.fillRect(x, y, squareSize, squareSize);
     }
 
- /*   private static void squareDrawer (Graphics graphics, int squareSize, Color colors) {
-        int x = (WIDTH/2) - (squareSize/2);
-        int y = (HEIGHT/2)-(squareSize/2)-30;
 
-        graphics.setColor(colors);
-        graphics.fillRect(x, y, squareSize, squareSize);
-    }
-*/
+
+
+
 //***********************************************************************************************************
 
     // Don't touch the code below
