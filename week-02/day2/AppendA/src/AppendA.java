@@ -5,20 +5,21 @@ import java.util.List;
 public class AppendA {
     public static void main(String[] args) {
 
-        List<String> far = Arrays.asList("bo", "anacond", "koal", "pand", "zebr");
+        ArrayList<String> far = Arrays.asList ("bo", "anacond", "koal", "pand", "zebr");
 
         System.out.println(appendA((ArrayList) far));
 
     }
 
-    private static ArrayList<String> apxpendA(ArrayList<String> far) {
+    private static ArrayList<String> appendA(ArrayList<String> far) {
 
+        ArrayList<String> far2 = far;
         for (int i = 0; i < far.size(); i++) {
             far(i).set(1, "a");
         }
         System.out.println(far());
 
-        return apxpendA();
+        return appendA();
     }
 
 }

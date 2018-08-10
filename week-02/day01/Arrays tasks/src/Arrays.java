@@ -66,7 +66,16 @@ public class Arrays {
 
         System.out.println(sum);
 
-        System.out.println("*********************************** excersie: Sum all elements **********************************");
+        System.out.println("*********************************** excersie: Reverse list **********************************");
+
+        int[] aj = {3, 4, 5, 6, 7};
+
+        int[] ajReverse = {};
+
+        for (int i = 0; i < aj.length/2 ; i++) {
+            ajReverse[i] = aj[aj.length - i - 1];
+            System.out.println(ajReverse[i]);
+        }
 
     }
 }
