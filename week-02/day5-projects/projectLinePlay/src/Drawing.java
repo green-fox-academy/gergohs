@@ -1,17 +1,11 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.Random;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Drawing {
     public static void mainDraw(Graphics graphics) {
-        // Draw the night sky:
-        //  - The background should be black
-        //  - The stars can be small squares
-        //  - The stars should have random positions on the canvas
-        //  - The stars should have random color (some shade of grey)
         
         upperLines(graphics);
         bottomLines(graphics);
