@@ -16,7 +16,7 @@ public class greeter {
     }
 
     private static String greet (String a1) {
-        
+
         return "Greetings dear, " + a1;
     }
 
