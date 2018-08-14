@@ -28,13 +28,13 @@ public class DrawDiamond {
         }
 // gyémánt alsó fele, a középvonal alatt
         //addig fut, amíg a sorok száma a középső sor számánál egyel kevesebb
-        for (sor = 1; sor <= (kozepsoSor-1); sor++) {
+        for (sor = 1; sor <= (kozepsoSor - 1); sor++) {
             //space-t rajzol, annyi space-t ammennyi az aktuális sor száma
             for (space = 1; space <= sor; space++) {
                 System.out.print(" ");
             }
             // csillagot rajzol, középsú sorból (5.) kivonva az aktuális sor számát, szorozva azt kettővel, mínusz egy
-            for (csillag = 1; csillag <= 2*(kozepsoSor-sor)-1; csillag++) {
+            for (csillag = 1; csillag <= 2 * (kozepsoSor - sor) - 1; csillag++) {
                 System.out.print("*");
             }
             System.out.println();

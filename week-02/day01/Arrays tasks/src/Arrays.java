@@ -44,6 +44,8 @@ public class Arrays {
 
         System.out.println("*********************************** excersie:Matrix **********************************");
 
+
+
 /*        int[][] a = {{0, 1, 2, 3}, {0, 1, 2, 3}};
 
       for (int i = 0; i < 4; i++) {
@@ -56,26 +58,27 @@ public class Arrays {
 
 
         int[] numList = {3, 4, 5, 6, 7};
-        int[] numList2 = new int[numList.length];
+
+        for (int i = 0; i < numList.length; i++) {
+            System.out.println(numList[i*2]);
+        }
 
         System.out.println("*********************************** excersie: Sum all elements **********************************");
 
         int[] ai = {3, 4, 5, 6, 7};
 
-        int sum = IntStream.of(ai).sum();
-
-        System.out.println(sum);
+        System.out.println(ai[0] + ai[1] + ai[2] + ai[3] + ai[4]);
 
         System.out.println("*********************************** excersie: Reverse list **********************************");
 
         int[] aj = {3, 4, 5, 6, 7};
 
-        int[] ajReverse = {};
-
-        for (int i = 0; i < aj.length/2 ; i++) {
-            ajReverse[i] = aj[aj.length - i - 1];
-            System.out.println(ajReverse[i]);
+        for (int i = 0; i < aj.length / 2; i++) {
+            int temp = aj[i];
+            aj[i] = aj[aj.length - i - 1];
+            aj[aj.length - i - 1] = temp;
         }
-
+        System.out.println(java.util.Arrays.toString(aj));
     }
+
 }

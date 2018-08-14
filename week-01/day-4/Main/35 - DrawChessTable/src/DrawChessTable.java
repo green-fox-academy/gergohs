@@ -3,7 +3,7 @@ public class DrawChessTable {
 
         int i;
         int j;
-        int n=5;
+        int n=10;
 
 
         for (i=1; i<=n; i++)

@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+
+
 import java.util.Scanner;
 
 public class ParametricAverage {
@@ -6,20 +7,15 @@ public class ParametricAverage {
 
         System.out.println("How many numbers would you like to give?");
 
-        Scanner number = new Scanner (System.in);
+        Scanner number = new Scanner(System.in);
 
-        String input = number.nextLine();
+        int input = number.nextInt();
 
-        System.out.println("Okay than, please give me the " + input + " numbers!");
+        //System.out.println("Okay than, please give me the " + input + " numbers!");
 
-        String [] stringArr = input.split(" ");
-        int size = stringArr.length;
+        int szamok [] = new int[input];
 
-        for ()
-        {
-
-        }
-
+        System.out.println(szamok[0]);
 
 
 
