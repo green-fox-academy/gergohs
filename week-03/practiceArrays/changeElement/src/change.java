@@ -14,7 +14,7 @@ public class change {
         s[3] = 4;
 
         System.out.println(s[3]);
-        
+
         //complete list:
         System.out.println(Arrays.toString(s));
 
