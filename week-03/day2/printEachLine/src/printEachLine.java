@@ -17,14 +17,14 @@ public class printEachLine {
 
         Path originalFile = Paths.get("my-files.txt");
 
-        if (Files.isReadable(originalFile)) {
             try {
                 List<String> lyrics = Files.readAllLines(originalFile);
-                System.out.println(lyrics);
+                for (String lyric : lyrics) {
+                    System.out.println(lyric);
+                }
             } catch (Exception e) {
                 System.out.println("Could not read the file");
             }
-        }
 
     }
 }
