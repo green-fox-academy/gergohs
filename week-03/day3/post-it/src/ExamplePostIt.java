@@ -4,9 +4,6 @@ import java.awt.*;
 public class ExamplePostIt {
     public static void main (String args []) {
 
-       // String colorOfOrange = "orange";
-       // String colorofOrangeText = "blue";
-
         PostIt orange = new PostIt();
 
         orange.backGroundColor = "orange";
