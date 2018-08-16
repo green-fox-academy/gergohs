@@ -12,7 +12,6 @@ public class ExamplePostIt {
 
         orange.showPostIt();
 
-
         PostIt pink = new PostIt();
 
         pink.backGroundColor = "pink";
@@ -20,7 +19,6 @@ public class ExamplePostIt {
         pink.textColor ="black";
 
         pink.showPostIt();
-
 
         PostIt yellow = new PostIt();
 
