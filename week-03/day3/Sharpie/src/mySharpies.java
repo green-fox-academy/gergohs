@@ -32,6 +32,6 @@ public class mySharpies {
             sharpie2.use();
         }
         System.out.println("Ink amount of the " + sharpie2Color + " sharpie is " + sharpie2.inkAmount);
-        
+
     }
 }
