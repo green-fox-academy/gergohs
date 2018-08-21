@@ -5,8 +5,8 @@ public class Sponsor extends Person {
     int hiredStudents;
 
     public void introduce() {
-        System.out.println("Hi, I'm " + getName() + ", a " + getAge()+ " year old" + getGender()+ " who represents " +
-                company + " and hired " + hiredStudents + "students so far.");
+        System.out.println("Hi, I'm " + getName() + ", a " + getAge() + " year old " + getGender() + " who represents " +
+                company + " and hired " + hiredStudents + " students so far.");
     }
 
     public void hire() {
@@ -14,19 +14,18 @@ public class Sponsor extends Person {
     }
 
     public void getGoal() {
-        System.out.println("Hire brilliant junior software developers.");
+        System.out.println("My goal is: Hire brilliant junior software developers.");
     }
 
     public Sponsor(String name, int age, String gender, String company) {
         super(name, age, gender);
-        this.company=company;
+        this.company = company;
         hiredStudents = 0;
     }
 
     public Sponsor() {
         super();
-        this.company = company;
+        this.company= "Google";
         this.hiredStudents = 0;
     }
-
 }

@@ -3,7 +3,7 @@ package greenfoxorg;
 import java.util.ArrayList;
 
 public class Person {
-   private String name;
+    private String name;
     private int age;
     private String gender;
 
@@ -28,12 +28,12 @@ public class Person {
     }
 
     public void setName(String name) {
-        this.name=name;
+        this.name = name;
     }
 
-public String getName (){
+    public String getName() {
         return name;
-        }
+    }
 
     public int getAge() {
         return age;
@@ -74,7 +74,7 @@ public String getName (){
             sponsor.hire();
         }
 
-        for(Person person : people) {
+        for (Person person : people) {
             person.introduce();
             person.getGoal();
         }

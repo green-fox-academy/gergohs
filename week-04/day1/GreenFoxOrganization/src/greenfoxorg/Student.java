@@ -6,12 +6,12 @@ public class Student extends Person {
 
     @Override
     public void getGoal() {
-        System.out.println("Be a junior software developer");
+        System.out.println("My goal is: Be a junior software developer");
     }
 
     public void introduce() {
-        System.out.println("Hi, I'm " + getName() + ", a " + getAge()+ " year old " + getGender()+ "from " + previousOrganization +
-                "who skipped " + skipDays + " days from the course already.");
+        System.out.println("Hi, I'm " + getName() + ", a " + getAge() + " year old " + getGender() + " from " + previousOrganization +
+                " who skipped " + skipDays + " days from the course already.");
     }
 
     public void skipDays(int numberOfDays) {
@@ -24,9 +24,9 @@ public class Student extends Person {
         this.skipDays = 0;
     }
 
-    public Student () {
+    public Student() {
         super();
-        this.previousOrganization = "The school of life";
+        this.previousOrganization = "The School of Life";
         this.skipDays = 0;
     }
 
