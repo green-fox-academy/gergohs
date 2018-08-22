@@ -6,5 +6,8 @@ public class Car {
 
     public Car() {
 
+        this.capacity=100;
+        this.gasAmount=0;
+
     }
 }
