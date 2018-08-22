@@ -1,39 +1,30 @@
 public abstract class Animal {
 
+    private String species;
     private int weight;
     private String color;
-    private int numberOflegs;
+    private int numberOfLegs;
 
+    public void setSpecies(String species) {
+        System.out.println("\nThis is a " + (this.species = species));
+    }
+
+    public void setNumberOfLegs(int numberOfLegs) {
+        System.out.println("It has " + numberOfLegs + " legs!");
+    }
 
     protected void giveSound() {
         System.out.println("any kind of sounds");
     }
 
-    protected void printIt() {
-        System.out.println(color);
-    }
-
-    public int getWeight() {
-        return weight;
-    }
 
     public void setWeight(int weight) {
-        this.weight = weight;
+        System.out.println("It's weight is " + (this.weight = weight) + " kg");
     }
 
-    public String getColor() {
-        return color;
-    }
 
     public void setColor(String color) {
-        this.color = color;
+        System.out.println("It has " + color + " color.");
     }
 
-    public int getNumberOflegs() {
-        return numberOflegs;
-    }
-
-    public void setNumberOflegs(int numberOflegs) {
-        this.numberOflegs = numberOflegs;
-    }
 }
