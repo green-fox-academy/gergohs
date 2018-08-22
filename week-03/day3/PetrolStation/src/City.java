@@ -5,12 +5,12 @@ public class City {
 
         car.gasAmount = 18;
         car.capacity = 80;
-        System.out.println(
-                "Before reFill:" + "\n" +
-                        "Total gas capacity of the car: " + car.capacity + "\n" +
-                        "Actual gas amount of the car: " + car.gasAmount + "\n" +
-                        "Actual gas capacity of the car (liters to be refill): " + (car.capacity - car.gasAmount) +
-                        "\n");
+        System.out.println("Before reFill:");
+        System.out.println("Total gas capacity of the car: " + car.capacity);
+        System.out.println("Actual gas amount of the car: " + car.gasAmount);
+        System.out.println("Actual gas capacity of the car (liters to be refill): " +
+                (car.capacity - car.gasAmount));
+        System.out.println(); //just to put a break line
 
         Station petrolStation = new Station();
 
