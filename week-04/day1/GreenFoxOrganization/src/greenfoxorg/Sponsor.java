@@ -10,7 +10,7 @@ public class Sponsor extends Person {
     }
 
     public void hire() {
-        hiredStudents++;
+        hiredStudents+=1;
     }
 
     public void getGoal() {
