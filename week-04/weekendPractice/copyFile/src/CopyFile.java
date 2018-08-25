@@ -9,20 +9,24 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class CopyFile {
-
     public static void main(String[] args) {
-        fileCopier("my-file.txt", "copied-file.txt");
+        System.out.println(fileCopier("my-file.txt", "copied-file2.txt"));
     }
 
-    public static boolean fileCopier(String original, String copied) {
+    private static boolean fileCopier(String original, String copied) {
+
+        boolean result = true;
         try {
-            Path originalFile = Paths.get(original);
-            Path copiedFile = Paths.get(copied);
-            List<String> lines = Files.readAllLines(originalFile);
-            Files.write(copiedFile, lines);
-            return true;
+            Files.copy(Paths.get(original), Paths.get(copied));
         } catch (IOException e) {
-            return false;
+            result = false;
         }
+        return result;
+
+     /* Path originalFile = Paths.get(original);
+        Path copiedFile = Paths.get(copied);
+        List<String> lines = Files.readAllLines(originalFile);
+        Files.write(copiedFile, lines);
+    */
     }
 }
