@@ -1,10 +1,14 @@
+package PirateShips;
+
 public class WarApp {
 
-    public static void main(String[] args) {
 
-        Armada armada = new Armada();
+/*        Armada insaneInvaders = new Armada();
+        Armada caribeanArmy = new Armada();
+
+        insaneInvaders.war(caribeanArmy);
+
+*/
 
 
-
-    }
 }

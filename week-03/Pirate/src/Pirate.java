@@ -1,18 +1,26 @@
-public class Pirate {
+package PirateShips;
 
+import java.util.Random;
+
+public class Pirate {
     private String name;
     private int intoxicateLevel;
+    private boolean isDead;
 
-    public int getIntoxicateLevel() {
-        return intoxicateLevel;
+
+    public Pirate(String name, String title) {
+        isDead = false;
+        this.name = name;
     }
 
-    public Pirate(String name, int intoxicateLevel) {
-    }
 
-    public int drinkSomeRum() {
-        intoxicateLevel++;
-        return intoxicateLevel;
+
+    public void drinkSomeRum() {
+        if (isDead) {
+            System.out.println("he's dead");
+        } else {
+            intoxicateLevel++;
+        }
     }
 
     public void howsItGoingMate() {
@@ -23,19 +31,34 @@ public class Pirate {
         }
     }
 
-    public String brawl() {
-        return null;
+    public void brawl(Pirate pirate) {
+        Random rand = new Random();
+        int chance = rand.nextInt(3);
+
+        if (chance == 0) {
+            this.die();
+        } else if (chance == 1) {
+            pirate.die();
+        } else if (chance == 2) {
+            this.die();
+            pirate.die();
+        }
     }
 
-    public String die() {
-        return "he\'s dead";
+    public boolean isDead() {
+        return isDead;
     }
 
-    public String getName() {
-        return name;
+
+
+    public void die() {
+        this.isDead = true;
     }
 
-    public void setName(String incoming) {
-        this.name = incoming;
+    public int getIntoxicateLevel() {
+        return intoxicateLevel;
     }
+
+
+
 }

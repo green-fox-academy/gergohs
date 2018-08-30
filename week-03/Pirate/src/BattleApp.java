@@ -1,19 +1,42 @@
-import java.util.List;
+package PirateShips;
+
 
 public class BattleApp {
+    Ship ship;
+    Ship ship2;
 
-    public static void main(String[] args) {
+    public BattleApp() {
 
-        Ship darkEel = new Ship();
-        Ship thePoisonGrail = new Ship();
+        ship = new Ship();
+        ship.setName("Spitfire");
+        ship.fillShip();
+        ship.getInfo();
 
-        darkEel.fillShip(new Pirate("name", 0));
-        thePoisonGrail.fillShip(new Pirate("name1", 0));
+        ship2 = new Ship();
+        ship2.setName("DarkEel");
+        ship2.fillShip();
+        ship2.getInfo();
 
-        darkEel.battle((List) thePoisonGrail);
+        System.out.println(ship.name + ", " + ship2.name);
 
-        darkEel.getInfo();
-        thePoisonGrail.getInfo();
+    }
+    public void main(String[] args) {
+
+        ship.getInfo();
+        ship2.getInfo();
 
     }
 }
+/*
+    new Ship("theSpitfire");
+        Ship thePoisonGrail = new Ship();
+
+        darkEel.fillShip();
+        thePoisonGrail.fillShip(new Pirate());
+
+        darkEel.battle(thePoisonGrail);
+
+        darkEel.getInfo();
+        thePoisonGrail.getInfo();
+*/
+

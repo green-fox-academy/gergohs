@@ -1,7 +1,19 @@
+package PirateShips;
+
 public class Main {
+
+    private static Ship ship2;
+    private static Ship ship;
 
     public static void main(String[] args) {
 
+        ship.getInfo();
+        ship2.getInfo();
+    }
+}
+
+//
+        /*
 //új kalóz létrehozása, ha a konstruktorban van bemenő paraméter
 //        Pirate firstPirate = new Pirate("Eastman Rumlover Zeus", 0);
 //        Pirate secondPirate = new Pirate("Morvan Onetooth Smythe", 0);
@@ -38,3 +50,13 @@ public class Main {
         thirdPirate.howsItGoingMate();
     }
 }
+*/
+
+
+/*
+        Pirate captain = new Pirate("CleverClifton", 3);
+                Pirate crewMember1 = new Pirate("FoolishFrank", 4);
+                Pirate crewMember2 = new Pirate("RumLoverLeslie", 8);
+                Pirate crewMember3 = new Pirate("OneTeethTom", 2);
+                List<Pirate> crew = new ArrayList<>();
+*/

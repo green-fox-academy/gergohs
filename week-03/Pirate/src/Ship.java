@@ -1,37 +1,66 @@
-import java.lang.reflect.Array;
+package PirateShips;
+
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
 public class Ship {
+    public String name;
+    public Ship shipName;
+    private ArrayList<Pirate> crew;
 
-    public Ship() {
+
+        public String getName () {
+            return name;
+        }
+
+        public void setName (String name){
+            this.name = name;
+        }
+
+
+        public void fillShip () {
+            Random random = new Random();
+            int numberOfPirates = random.nextInt(20);
+            for (int i = 0; i < numberOfPirates; i++) {
+                crew.add(new Pirate(" ", " "));
+            }
+
+            System.out.println(crew.size());
+        }
+
+
+        public void getInfo () {
+            System.out.println(shipName);
+            System.out.println(crew.size());
+        }
     }
+    /*
 
-    public void fillShip(Pirate Pirate) {
-        Pirate captain = new Pirate("CleverClifton", 3);
-        Pirate crewMember1 = new Pirate("FoolishFrank", 4);
-        Pirate crewMember2 = new Pirate("RumLoverLawrence", 8);
-        Pirate crewMember3 = new Pirate("OneTeethTom", 2);
-        List<Pirate> crew = new ArrayList<>();
+    public boolean battle(Ship ship) {
 
-        crew.add(captain);
-        crew.add(crewMember1);
-        crew.add(crewMember2);
-        crew.add(crewMember3);
-    }
-
-    public void getInfo(ArrayList crew, Pirate pirate) {
-
-        System.out.println(crew);
-        System.out.println(pirate.intoxicateLevel);
-    }
-
-    public boolean battle(List crew) {
-        int shipScore = crew.size() - captain.intoxicateLevel;
-        if (this.shipScore > otherShip.shipScore) {
+        if (this.shipScore > shipScore) {
             return true;
         }
         return false;
     }
 
-}
+    public void battle(List thePoisonGrail) {
+
+    }*/
+  /*  @Override
+    public String toString() {
+        String info = " ";
+
+        for (Pirate pirate : crew) {
+            if (pirate.getTitle() == "captain") {
+                info += "The captain's intoxicatelevel is: ";
+                info += pirate.getIntoxicateLevel();
+                info += ", and he is ";
+                info += pirate.isDead();
+                info += " \n ";
+            }
+        }
+        info += crew.size() - 1;
+        return info;
+    }
+*/
