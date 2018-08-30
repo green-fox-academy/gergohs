@@ -1,5 +1,3 @@
-package PirateShips;
-
 import java.util.ArrayList;
 import java.util.Random;
 

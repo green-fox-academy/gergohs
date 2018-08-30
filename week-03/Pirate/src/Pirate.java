@@ -1,5 +1,3 @@
-package PirateShips;
-
 import java.util.Random;
 
 public class Pirate {

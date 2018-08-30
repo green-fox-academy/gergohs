@@ -1,5 +1,3 @@
-package PirateShips;
-
 public class Main {
 
     private static Ship ship2;
@@ -7,8 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ship.getInfo();
-        ship2.getInfo();
+
     }
 }
 

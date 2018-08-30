@@ -1,6 +1,3 @@
-package PirateShips;
-
-
 public class BattleApp {
     Ship ship;
     Ship ship2;

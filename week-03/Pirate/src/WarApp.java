@@ -1,5 +1,3 @@
-package PirateShips;
-
 public class WarApp {
 
 
