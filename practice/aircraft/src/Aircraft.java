@@ -22,7 +22,7 @@ public class Aircraft {
 
     public int reFill(int stock) {
         if (this.ammo < this.maxAmmo) {
-            this.ammo += (this.maxAmmo-this.ammo);
+            this.ammo += (this.maxAmmo - this.ammo);
             stock -= (this.maxAmmo - this.ammo);
         }
         return stock;
@@ -30,7 +30,7 @@ public class Aircraft {
 
     public String getStatus() {
         String getStatus = "Type: " + this.type + ", Ammo: " + this.ammo + ", Base damage: " + this.baseDamage
-                + ", All damage: " + (this.ammo*this.baseDamage);
+                + ", All damage: " + (this.ammo * this.baseDamage);
         return getStatus;
     }
 
