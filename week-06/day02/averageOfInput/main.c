@@ -14,7 +14,6 @@ int main()
 
     printf("Please enter 5 numbers: \n");
     scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
-    printf("Sum: %d, Average: %d \n", a+b+c+d+e, (a+b+c+d+e)/5);
-    //printf("Average: %d \n", (a+b+c+d+e)/5);
+    printf("Sum: %d, Average: %.2f \n", a+b+c+d+e, (float)(a+b+c+d+e)/5);
 
 }
