@@ -10,12 +10,12 @@ int main()
     summingFunc(ai);
 }
 
-int summingFunc (int ai[])
+int summingFunc (int name[])
 {
     int temp = 0;
     for (int i=0; i<5; i++)
     {
-        temp += ai[i];
+        temp += name[i];
     }
     return printf("%d", temp);
 }
