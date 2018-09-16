@@ -6,5 +6,5 @@ int main()
 {
     int number = 1234;
     int *pnum = &number;
-    printf("Address: %p\n", number, &number, *pnum, pnum);
+    printf("Address: %p\n", *pnum);
 }
