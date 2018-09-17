@@ -16,7 +16,7 @@ float circFerCalc (int radius);
 
 int main()
 {
-    int sampleCircle = 8;
+    int sampleCircle = 6;
     circFerCalc(sampleCircle);
 }
 
