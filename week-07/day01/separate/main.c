@@ -12,16 +12,11 @@ this function should be in the same .c and .h files as the one which calculates 
 #include <stdlib.h>
 #include "pi.h"
 
-float circFerCalc (int radius);
-
 int main()
 {
-    int sampleCircle = 6;
-    circFerCalc(sampleCircle);
+    float sampleCircle = 6.5;
+
+    printf("%.2f\n", areaCalc(sampleCircle));
+    printf("%.2f\n", circFerCalc(sampleCircle));
 }
 
-float circFerCalc (int radius)
-{
-    float circumference = 2 * (float)radius * PI;
-    return printf("%.2f", circumference);
-}
