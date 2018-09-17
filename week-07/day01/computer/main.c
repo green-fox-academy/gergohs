@@ -4,14 +4,18 @@
 
 int main()
 {
-    struct Computer noteBook;
+    struct Computer myComputer;
 
-    noteBook.ram_size_GB = 50;
-    noteBook.cpu_speed_GHz = 1.2;
-    noteBook.bits = 8;
+    myComputer.ram_size_GB = 50;
+    myComputer.cpu_speed_GHz = 1.2;
+    myComputer.bits = 16;
 
-    printf("Ram size is: %d GB\n", noteBook.ram_size_GB);
-    printf("Cpu speed is: %.2f GHz\n", noteBook.cpu_speed_GHz);
-    printf("Bits are: %d bit \n", noteBook.bits);
+    printf("My computer has %d GB ram, %.2f GHz cpu and %d bits.\n\n", myComputer.ram_size_GB, myComputer.cpu_speed_GHz, myComputer.bits);
 
+    NoteBook myNotebook;
+    myNotebook.ram_size_GB = 80;
+    myNotebook.cpu_speed_GHz = 2.4;
+    myNotebook.bits = 24;
+
+    printf("My notebook has %d GB ram, %.2f GHz cpu and %d bits.\n\n", myNotebook.ram_size_GB, myNotebook.cpu_speed_GHz, myNotebook.bits);
 }
