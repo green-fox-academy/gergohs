@@ -5,7 +5,6 @@
 // Create an array which can store coordinates, do not create multidimensonal arrays here
 // Fill up the coordinates in the array with random number.
 
-
 int main()
 {
     Coordinates coordinateArr[20];
