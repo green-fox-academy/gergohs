@@ -22,7 +22,7 @@ int main()
     pirate3.has_wooden_leg = 1;
 
     strcpy(pirate4.name, "OneTwo");
-    pirate4.gold_count = 6;
+    pirate4.gold_count = 66;
     pirate4.has_wooden_leg = 1;
 
     Pirate list_of_pirates[] = {pirate1, pirate2, pirate3, pirate4};
@@ -30,5 +30,5 @@ int main()
 
     sum_gold(list_of_pirates, size);
     average_gold(list_of_pirates, size);
-
+    richest_wooden_leg(list_of_pirates, size);
 }
