@@ -7,28 +7,37 @@ int sum_gold (Pirate pirate[], int size)
     {
         sum += pirate[i].gold_count;
     }
-    return printf("%d\n",sum);
+    return printf("The total gold is: %d\n",sum);
 }
+
+//--------------------------------------------------------------------
 
 float average_gold (Pirate pirate[], int size)
 {
-    int gold_avg = 0;
-    int sum = 0;
+    float gold_avg = 0.0;
+    float sum = 0.0;
     for (int i=0; i<size; i++)
     {
         sum += pirate[i].gold_count;
     }
     gold_avg = sum/size;
-    return printf("%d\n", gold_avg);
+    return printf("The average gold is: %.2f\n", gold_avg);
 }
-/*
-int richest_wooden_leg (Pirate pirate[], int size)
+
+//--------------------------------------------------------------------
+
+char* richest_wooden_leg (Pirate pirate[], int size)
 {
-    if (pirate.has_wooden_leg == 1)
+    char* richest = pirate[0].name;
+    int maxGold = pirate[0].gold_count;
+
+    for (int i = 0; i<size; i++)
     {
-        return
+        if (pirate[i].has_wooden_leg && pirate[i].gold_count > maxGold)
+        {
+            maxGold = pirate[i].gold_count;
+            richest = pirate[i].name;
+        }
     }
+    return printf("%s\n", richest);
 }
-*/
-
-
