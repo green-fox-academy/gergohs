@@ -3,19 +3,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum transmission {
-    manual, automatic, CVT, semi_automatic, dual_clutch} transmission;
+typedef enum
+{
+    manual, automatic, CVT, semi_automatic, dual_clutch
+} Transmission;
 
 typedef struct
 {
     char manufacturer[256];
     float price_in_euros;
     int year_of_manufact;
-    enum transmission;
+    Transmission transm_type;
 } Cars;
 
-void get_older_cars_than(struct car* array, int array_length, int age);
+void get_older_cars_than(Cars* list, int array_length, int age);
 
-void get_transmission_count(struct car* array, int array_length, enum transmission trnsm);
+void get_transmission_count(Cars* list, int array_length, Transmission trnms);
 
 #endif // REGISTER_H_INCLUDED
