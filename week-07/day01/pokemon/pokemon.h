@@ -22,6 +22,8 @@ void get_faster(Pokemons* pokemon_list, int array_length, float speed);
 
 void get_type(Pokemons* pokemon_list, int array_length, Type pokemon_type);
 
+char* pokemon_type_finder(Type type);
+
 void get_strongest(Pokemons* pokemon_list, int array_length, float strength);
 
 void get_max_strength(Pokemons* pokemon_list, int array_length, Type given_type);
