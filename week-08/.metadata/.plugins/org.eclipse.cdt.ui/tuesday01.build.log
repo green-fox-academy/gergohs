@@ -1,0 +1,23 @@
+13:24:39 **** Incremental Build of configuration Debug for project tuesday01 ****
+make -j4 all 
+Building file: ../src/main.c
+Invoking: MCU GCC Compiler
+C:\Users\gergohs\week-08\tuesday01\Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -DSTM32 -DSTM32F7 -DSTM32F746NGHx -DSTM32F746G_DISCO -DDEBUG -DSTM32F746xx -DUSE_HAL_DRIVER -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/ampire480272" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/n25q512a" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/s5k5cag" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/mfxstm32l152" -I"C:/Users/gergohs/week-08/tuesday01/CMSIS/device" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/n25q128a" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/ts3510" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/st7735" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/rk043fn48h" -I"C:/Users/gergohs/week-08/tuesday01/HAL_Driver/Inc/Legacy" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/ov9655" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/otm8009a" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/STM32746G-Discovery" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/Common" -I"C:/Users/gergohs/week-08/tuesday01/HAL_Driver/Inc" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/stmpe811" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/wm8994" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Fonts" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/ft5336" -I"C:/Users/gergohs/week-08/tuesday01/inc" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/ft6x06" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/exc7200" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/st7789h2" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Log" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/adv7533" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/ampire640480" -I"C:/Users/gergohs/week-08/tuesday01/CMSIS/core" -I"C:/Users/gergohs/week-08/tuesday01/Utilities/Components/mx25l512" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: tuesday01.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -T"C:/Users/gergohs/week-08/tuesday01/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "tuesday01.elf" @"objects.list"   -lm
+Finished building target: tuesday01.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "tuesday01.elf" "tuesday01.bin"
+arm-none-eabi-size "tuesday01.elf"
+   text	   data	    bss	    dec	    hex	filename
+   6836	   1096	   1740	   9672	   25c8	tuesday01.elf
+ 
+
+13:24:57 Build Finished (took 18s.741ms)
+
