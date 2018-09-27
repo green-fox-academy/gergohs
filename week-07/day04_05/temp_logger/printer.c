@@ -15,6 +15,8 @@ void print_startup_message()
 	printf(" o      Open port\n");
 	printf(" s      Start logging / Stop logging\n");
 	printf(" c      Close port\n");
+	printf(" k      Handling errors\n");
+	printf(" q      Delete file\n");
     printf(" e      Exit from the program\n");
 }
 

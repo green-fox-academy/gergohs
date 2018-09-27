@@ -11,6 +11,7 @@ int main()
     comEnumerate();
     print_startup_message();
     char* file_name = "temp_logger.txt";
+    char* tokenized_text = "tokenized_text.txt";
 
     while (1)
     {
@@ -46,8 +47,15 @@ int main()
             case 'c':
                 close_port();
                 break;
-            case 'e':
+            case 'k':
+                error_handler(file_name);
+                break;
+
+            case 'q':
                 remove(file_name);
+                clear_screen();
+                printf("\n ----------File deleted----------\n");
+                printf("\n ----Push 'H' to go back to Main----\n");
                 break;
             default:
                 break;

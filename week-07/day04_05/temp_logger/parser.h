@@ -9,5 +9,7 @@ int get_port_name();
 int open_port();
 int close_port();
 int log_data(char* file_name);
+void error_handler (char* file_name);
+
 
 #endif // PARSER_H_INCLUDED

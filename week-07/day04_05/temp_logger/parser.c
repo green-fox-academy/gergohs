@@ -142,5 +142,46 @@ int log_data(char* file_name)
         fprintf(fPointer, "\n");
         fclose(fPointer);                                   //own
     }
+
     return 0;
 }
+
+void error_handler (char* file_name)
+{
+    clear_screen();
+    printf("\n----------------Filtered datas----------------\n");
+
+    FILE* fPointer2;
+    fPointer2 = fopen("temp_logger.txt", "r");
+    FILE* tok_txt;
+    tok_txt = fopen("filtered_text.txt", "a");
+
+    char text_to_tokenize[100];
+    char* date;
+    char* time;
+    char* temperature_data;
+    char* year;
+    char* month;
+    char* day;
+
+    while (fgets(text_to_tokenize, 1000, fPointer2) != NULL)
+    {
+        date = strtok(text_to_tokenize, " ");
+        time = strtok(NULL, " ");
+        temperature_data = strtok(NULL, " ");
+
+        year = strtok(date, ".");
+        month = strtok(NULL, ".");
+        day = strtok (NULL, ".");
+
+        if( 0 < atoi(year) && atoi(year) <= 2018 && atoi(year) <= 2018 && 0 < atoi(month) && atoi(month) <=31 && 0 <= atoi(day) && atoi(day) < 60)
+        {
+            printf("%s.%s.%s. \t %s",year, month, day, temperature_data);
+            fprintf(tok_txt, "%s.%s.%s\t%s",year, month, day, temperature_data);
+        }
+    }
+    fclose(fPointer2);
+    fclose(tok_txt);
+    return 0;
+}
+
