@@ -16,22 +16,23 @@
 
 int main()
 {
-    //  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946,
-    //  17711, 28657, 46368, 75025, 121393, 196418, 317811,
-
     int given_num;
-    int i;
-    int a = 0;
-    int b = 1;
-    int c;
-
     printf("Please enter a number\n");
     scanf("%d", &given_num);
-   // printf("0 ");
-   // printf("1 ");
-   printf("The first %d elements of the Fibonacci sequence is: \n", given_num);
 
-    for (i = 1; i<=given_num; i++)
+    generate_fibonacci(given_num);
+}
+
+
+
+int generate_fibonacci(int given_num)
+{
+    printf("The first %d elements of the Fibonacci sequence is: \n", given_num);
+    int a=0;
+    int b=1;
+    int c;
+
+    for (int i = 1; i<=given_num; i++)
     {
         printf("%d, ", a);
         c = a+b;
@@ -39,6 +40,6 @@ int main()
         b=c;
     }
     printf("\n");
-
     return 0;
 }
+
