@@ -29,11 +29,49 @@ int main()
     text_pointer = fopen("text.txt", "r");
     text_pointer2 = fopen("me_the_hacker.txt", "w");
 
-//*********************************************************************-
+    int bin_num;
+    int ascii_num;
+
+    if (text_pointer == NULL){
+        printf("Could not open the file for read.");
+    } else if (text_pointer2 == NULL){
+        printf("Could not create and write the converted file.");
+    } else {
+        while (fscanf(text_pointer,"%d", &bin_num) == 1){
+            int ascii_num = binary_converter(bin_num);
+            printf("%c", (char)ascii_num);
+            fputc(ascii_num, text_pointer2);
+        }
+    }
+    fclose(text_pointer);
+    fclose(text_pointer2);
+}
 
 
 
-//*********************************************************************-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  hétfõ
+    FILE* text_pointer;
+    FILE* text_pointer2;
+    text_pointer = fopen("text.txt", "r");
+    text_pointer2 = fopen("me_the_hacker.txt", "w");
+
+//*********************************************************************
+//*********************************************************************
 
 int numbers[4];
 char bin_nums[32];
@@ -61,7 +99,7 @@ while (fscanf(text_pointer, "%d", my_num)!= NULL)
 
             }
         */
-
+/*
         }
 }
 
@@ -96,3 +134,5 @@ int binary_converter(char bin_nums[32])
 {
 
 }
+*/
+

@@ -4,6 +4,8 @@
 #include <stdlib.h>
 
 
+int binary_to_ascii(int bin);
+
 //int binary_converter(bin_nums);
 
 
