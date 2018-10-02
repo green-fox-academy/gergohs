@@ -13,6 +13,6 @@ typedef struct
 
 int get_on (Bus bus, int passangers_on);
 int get_off (Bus bus, int passangers_off);
-char find_largest_cap (Bus* buses);
+char find_largest_cap (Bus bus_list[], int list_size);
 
 #endif // BUS_H_INCLUDED

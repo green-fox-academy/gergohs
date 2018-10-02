@@ -42,24 +42,32 @@ int main()
     Bus bus4;  //Mercedes
     Bus bus5;  //Man;
 
+    strcpy(bus1.name, "Ikarus");
     bus1.total_seats = 36;
     bus1.total_standing_places = 147;
     bus1.capacity = bus1.total_seats+bus1.total_standing_places;
 
+    strcpy(bus2.name, "Neoplan");
     bus2.total_seats = 50;
-    bus2.total_standing_places = 100;
+    bus2.total_standing_places = 150;
+    bus2.capacity = bus2.total_seats+bus2.total_standing_places;
 
+    strcpy(bus3.name, "Volvo");
     bus3.total_seats = 80;
-    bus3.total_standing_places = 20;
+    bus3.total_standing_places = 200;
+    bus3.capacity = bus3.total_seats+bus3.total_standing_places;
 
+    strcpy(bus4.name, "Mercedes");
     bus4.total_seats = 70;
     bus4.total_standing_places = 0;
+    bus4.capacity = bus4.total_seats+bus4.total_standing_places;
 
-    Bus bus_list[]= {bus1, bus2, bus3, bus4};
+    Bus bus_list[4]= {bus1, bus2, bus3, bus4};
     int list_size = sizeof(bus_list)/sizeof(bus_list[0]);
 
     get_on(bus1, 140);
     get_on(bus1, 40);
     get_on(bus1, 20);
 
+    find_largest_cap(bus_list, list_size);
 }
