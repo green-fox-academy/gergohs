@@ -23,14 +23,32 @@ int digivol_level_counter (Digimon *digi_list, int size, Digivolution digivol_le
 {
 
     int counter = 0;
-    for (int i = 0; i < size; i++){
-        if (digi_list[i].digivol_level == digivol_level){
+    for (int i = 0; i < size; i++)
+    {
+        if (digi_list[i].digivol_level == digivol_level)
+        {
             counter++;
         }
     }
-        return printf("The number of the digimons int the given level: %d \n", counter);
+    return printf("The number of the digimons int the given level: %d \n\n", counter);
 }
 //*********************************************************************************************************
 //*********************************************************************************************************
 
+int tamer_count (Digimon *digi_list, int size, char tamer[128])
+{
+
+    int counter = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (strcmp(digi_list[i].name_of_tamer, tamer) == 0)
+        {
+            counter++;
+        }
+    }
+        return printf("The number of the digimons with the same tamer: %d \n\n", counter);
+}
+//*********************************************************************************************************
+//*********************************************************************************************************
 
