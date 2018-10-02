@@ -9,8 +9,9 @@
  When they get off the bus, the standing places will be released first.
 */
 
-int passangers_on;
 //***********************************************************************************************
+int passangers_on;
+
 int get_on (Bus bus, int passangers_on)
 {
     int occupied_seats;
@@ -48,18 +49,42 @@ int get_off (Bus bus, int passangers_off)
 
 }
 //***********************************************************************************************
-char find_largest_cap (Bus* buses)
+char find_largest_cap (Bus bus_list[], int list_size)
 {
     int max_cap = 0;
-    int i = 0;
-    int size = sizeof(buses)/sizeof(buses[0]);
+    int i;
 
-    for (int i=0; i<size; i++)
+    for (i=0; i < list_size; i++)
     {
-        if(buses[i].capacity > max_cap)
+       // bus_list[i].capacity = bus_list[i].total_seats + bus_list[i].total_standing_places;
+
+        if(bus_list[i].capacity > max_cap)
         {
-            max_cap = buses[i].capacity;
+            max_cap = bus_list[i].capacity;
         }
     }
-    return buses[i].name;
+    for (i=0; i< list_size; i++){
+        if(bus_list[i].capacity == max_cap)
+        {
+            return printf("The fckin bus is: %s\n", bus_list[i].name);
+//            strcpy (bus_name, bus_list[i].name);
+        }
+
+    }
+    // printf("The max. capacity is: %s\n", max_cap);
+
+    /*
+        for (i = 0; i < list_size; i++)
+        {
+            bus_list[i].capacity = bus_list[i].total_seats + bus_list[i].total_standing_places;
+
+            if(bus_list[i].capacity = max_cap)
+            {
+                return bus_list[i].name;
+    //            strcpy (bus_name, bus_list[i].name);
+            }
+    //    return printf("%s\n", bus_list[i].name);
+        }
+    //   printf("WTF the name %s \n", bus_list[i].name);
+    */
 }
