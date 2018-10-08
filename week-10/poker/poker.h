@@ -21,7 +21,7 @@ typedef struct
 
 typedef struct
 {
-    char name[128];
+    char name[256];
     card first;
     card second;
 } Player;

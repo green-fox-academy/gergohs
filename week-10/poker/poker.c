@@ -11,7 +11,7 @@ Player* read_hands_from_file(char* filename, int* num_of_players)
     char* token;
     char temp[128];
 
-    while (fgets(temp, 128, fpointer))
+    while (fgets(temp, 256, fpointer))
     {
         token = strtok(temp, " ,");
         strcpy(player[counter].name, token);

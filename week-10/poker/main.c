@@ -11,6 +11,6 @@ int main()
 
     num_of_new_cards = read_number_of_cards();
 
-  //  generate_random_cards();
+    generate_random_cards();
 
 }
