@@ -7,8 +7,8 @@ int main()
     fpointer = fopen("sample.txt", "r");
     FILE* fpointer2;
     fpointer2 = fopen("reversed.txt", "a");
-    char* buffer = (char*) malloc(100*sizeof(char));
-    int size = (char*) malloc(100*sizeof(int));
+    char* buffer = (char*) malloc(1000*sizeof(char));
+    int size = (int*) malloc(1000*sizeof(int));
 
     if (fpointer == NULL)
     {
