@@ -5,17 +5,23 @@ Player* read_hands_from_file(char* filename, int* num_of_players)
     FILE* fpointer;
     fpointer = fopen(filename, "r");
 
-    Player player[128];
+    Player* player = malloc(100 * sizeof(Player));
     int counter = 0;
 
     char* token;
-    char temp[128];
+    char buffer[256];
 
-    while (fgets(temp, 256, fpointer))
+    if (fpointer==NULL)
     {
-        token = strtok(temp, " ,");
+        printf("Error");
+        return 0;
+    }
+
+    while (fgets(buffer, 256, fpointer))
+    {
+        token = strtok(buffer, " ");
         strcpy(player[counter].name, token);
-        token = strtok(NULL, " ,");
+        token = strtok(NULL, ",");
 
         if (token[0] == 'S')
         {
@@ -156,7 +162,7 @@ Player* read_hands_from_file(char* filename, int* num_of_players)
         {
             player[counter].second.value = A;
         }
-        counter++;
+        ++counter;
     }
     *num_of_players = counter;
     return player;
@@ -183,14 +189,38 @@ int read_number_of_cards()
 card* generate_random_cards(int num_of_new_cards, card* random_cards)    //-> fills random_cards array with 'number' random cards
 {
 
-    int max_num = 13;
-    int min_num = 2;
+    int min_num_1 = 0;
+    int max_num_1 = 4;
 
-    srand(time(NULL));
-    for (int i = 0; i < num_of_new_cards; i++){
-        printf("%d \n", rand()%(max_num + 1 - min_num) + min_num);
+    int min_num_2 = 0;
+    int max_num_2 = 12;
+
+    int rand_num_one;
+    int rand_num_two;
+
+    card* random_card_array = malloc(num_of_new_cards * sizeof(card));
+
+    srand(time(NULL));          //generate random card type
+    for (int i = 0; i < num_of_new_cards; i++)
+    {
+        random_card_array[i].type = rand()%((max_num_1 + 1 - min_num_1) + min_num_1);
     }
 
+    for (int i = 0; i<max_num_1; i++)
+    {
+        printf("Random type: %u\n", random_card_array[i].type);
+    }
+
+    srand(time(NULL));          //generate random card value
+    for (int i = 0; i < num_of_new_cards; i++)
+    {
+        random_card_array[i].value = rand()%((max_num_2 + 1 - min_num_2) + min_num_2);
+    }
+
+    for (int i = 0; i<max_num_2; i++)
+    {
+        printf("Random value: %u\n", random_card_array[i].value);
+    }
 
 }
 
