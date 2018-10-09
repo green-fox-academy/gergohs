@@ -178,7 +178,7 @@ int read_number_of_cards()
     int num_of_cards;
     printf("Please enter the number of cards: \n");
     scanf("%d", &num_of_cards);
-    printf("The number of new cards are: %d\n", num_of_cards);
+    printf("The number of new cards are: %d\n\n", num_of_cards);
     return num_of_cards;
 }
 
@@ -188,7 +188,6 @@ int read_number_of_cards()
 
 card* generate_random_cards(int num_of_new_cards, card* random_cards)    //-> fills random_cards array with 'number' random cards
 {
-
     int min_num_1 = 0;
     int max_num_1 = 4;
 
@@ -200,28 +199,19 @@ card* generate_random_cards(int num_of_new_cards, card* random_cards)    //-> fi
 
     card* random_card_array = malloc(num_of_new_cards * sizeof(card));
 
-    srand(time(NULL));          //generate random card type
+   srand(time(NULL));          //generate random card type
     for (int i = 0; i < num_of_new_cards; i++)
     {
-        random_card_array[i].type = rand()%((max_num_1 + 1 - min_num_1) + min_num_1);
+        random_card_array[i].type   = rand()%((max_num_1 + 1 - min_num_1) + min_num_1);
+        random_card_array[i].value  = rand()%((max_num_2 + 1 - min_num_2) + min_num_2);
     }
 
-    for (int i = 0; i<max_num_1; i++)
+    for (int i = 0; i<num_of_new_cards; i++)
     {
-        printf("Random type: %u\n", random_card_array[i].type);
+        printf("Random card array elements: %u, %u\n", random_card_array[i].type, random_card_array[i].value);
     }
 
-    srand(time(NULL));          //generate random card value
-    for (int i = 0; i < num_of_new_cards; i++)
-    {
-        random_card_array[i].value = rand()%((max_num_2 + 1 - min_num_2) + min_num_2);
-    }
-
-    for (int i = 0; i<max_num_2; i++)
-    {
-        printf("Random value: %u\n", random_card_array[i].value);
-    }
-
+    return random_card_array;
 }
 
 //**************************************************************************************************
