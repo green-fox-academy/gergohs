@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main()
 {
     FILE* fpointer;
     fpointer = fopen("sample.txt", "r");
     FILE* fpointer2;
-    fpointer2 = fopen("reversed.txt", "a");
+    fpointer2 = fopen("reversed.txt", "w");
     char* buffer = (char*) malloc(1000*sizeof(char));
     int size = (int*) malloc(1000*sizeof(int));
 
@@ -21,6 +22,9 @@ int main()
     while(fgets(buffer, size, fpointer))
     {
         printf("%s\n", strrev(buffer));
-        fputs(buffer, fpointer2);
+//        fputs(buffer, fpointer2);
+        fprintf(fpointer2, "%s\n", buffer);
     }
+    fclose(fpointer2);
+    fclose(fpointer);
 }
