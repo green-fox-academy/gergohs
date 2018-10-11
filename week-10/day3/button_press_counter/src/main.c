@@ -14,12 +14,11 @@
 UART_HandleTypeDef uart_handle;			// UART INIT
 GPIO_InitTypeDef led_green;					// LED INIT
 GPIO_InitTypeDef led_red;					// LED INIT
-//GPIO_InitTypeDef led_XXX;				// other led
 GPIO_InitTypeDef blue_button;
+GPIO_InitTypeDef led_green_2;
 TIM_HandleTypeDef tim_2;				//timer1 typdef
 TIM_HandleTypeDef tim_pwm;
 TIM_OC_InitTypeDef sConfig;
-
 
 //#undef __GNUC__
 #ifdef __GNUC__
@@ -36,9 +35,14 @@ static void CPU_CACHE_Enable(void);
 
 volatile int state = 0;  // global valtozo
 volatile int tim2_state = 0;
+volatile int button_press_counter = 0;
+volatile int ignore_first_interrupt = 0;
+volatile int led_counter = 0;
+volatile int info_printer = 0;
 
 void button_init() {
-	__HAL_RCC_GPIOI_CLK_ENABLE();         			// enable the GPIOI clock
+	__HAL_RCC_GPIOI_CLK_ENABLE()
+	;         			// enable the GPIOI clock
 
 	blue_button.Pin = GPIO_PIN_11;             		// the pin is the 11
 	blue_button.Pull = GPIO_NOPULL;
@@ -49,70 +53,83 @@ void button_init() {
 }
 
 void led_init() {
-	__HAL_RCC_GPIOA_CLK_ENABLE();   		 		// we need to enable the GPIOA port's clock first
+	__HAL_RCC_GPIOA_CLK_ENABLE()
+	;   		 		// we need to enable the GPIOA port's clock first
 
 	led_red.Pin = GPIO_PIN_15;            				// this is about PIN 0
-	led_red.Mode = GPIO_MODE_OUTPUT_PP; 				// Configure as output with push-up-down enabled
-	led_red.Pull = GPIO_PULLDOWN;      				// the push-up-down should work as pulldown
-	led_red.Speed = GPIO_SPEED_HIGH;     				// we need a high-speed output
+	led_red.Mode = GPIO_MODE_OUTPUT_PP; // Configure as output with push-up-down enabled
+	led_red.Pull = GPIO_PULLDOWN;    // the push-up-down should work as pulldown
+	led_red.Speed = GPIO_SPEED_HIGH;     		// we need a high-speed output
 
-	HAL_GPIO_Init(GPIOA, &led_red);   				// initialize the pin on GPIOA port with HAL
+	HAL_GPIO_Init(GPIOA, &led_red); // initialize the pin on GPIOA port with HAL
 }
 
 void led_green_init() {
-	__HAL_RCC_GPIOB_CLK_ENABLE();   		 		// we need to enable the GPIOA port's clock first
+	__HAL_RCC_GPIOB_CLK_ENABLE()
+	;   		 		// we need to enable the GPIOA port's clock first
 
 	led_green.Pin = GPIO_PIN_4;            				// this is about PIN 0
-	led_green.Mode = GPIO_MODE_AF_PP; 				// Configure as output with push-up-down enabled
-	led_green.Pull = GPIO_PULLDOWN;      				// the push-up-down should work as pulldown
-	led_green.Speed = GPIO_SPEED_HIGH;     				// we need a high-speed output
+	led_green.Mode = GPIO_MODE_AF_PP; // Configure as output with push-up-down enabled
+	led_green.Pull = GPIO_PULLDOWN;  // the push-up-down should work as pulldown
+	led_green.Speed = GPIO_SPEED_HIGH;     		// we need a high-speed output
 	led_green.Alternate = GPIO_AF2_TIM3;
 
-	HAL_GPIO_Init(GPIOB, &led_green);   				// initialize the pin on GPIOA port with HAL
+	HAL_GPIO_Init(GPIOB, &led_green); // initialize the pin on GPIOA port with HAL
 }
 
-void timer_init()
-{
-	__HAL_RCC_GPIOI_CLK_ENABLE();
-	__HAL_RCC_TIM2_CLK_ENABLE();
+void led_green_2_init() {
+	__HAL_RCC_GPIOF_CLK_ENABLE()
+	;   		 		// we need to enable the GPIOA port's clock first
 
-    tim_2.Instance               = TIM2;
-    tim_2.Init.Period            = 3333;    //108000000 / 32400 = ... * X sec
-    tim_2.Init.Prescaler         = 32400;
-    tim_2.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
-    tim_2.Init.CounterMode       = TIM_COUNTERMODE_UP;
+	led_green_2.Pin = GPIO_PIN_9;            			// this is about PIN 0
+	led_green_2.Mode = GPIO_MODE_OUTPUT_PP; // Configure as output with push-up-down enabled
+	led_green_2.Pull = GPIO_PULLDOWN; // the push-up-down should work as pulldown
+	led_green_2.Speed = GPIO_SPEED_HIGH;     	// we need a high-speed output
 
-    HAL_TIM_Base_Init(&tim_2);
+	HAL_GPIO_Init(GPIOF, &led_green_2); // initialize the pin on GPIOA port with HAL
+}
+
+void timer_init() {
+	__HAL_RCC_GPIOI_CLK_ENABLE()
+	;
+	__HAL_RCC_TIM2_CLK_ENABLE()
+	;
+
+	tim_2.Instance = TIM2;
+	tim_2.Init.Period = 16665;    //108000000 / 32400 = ... * X sec
+	tim_2.Init.Prescaler = 32400;
+	tim_2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+	tim_2.Init.CounterMode = TIM_COUNTERMODE_UP;
+
+	HAL_TIM_Base_Init(&tim_2);
 	HAL_TIM_Base_Start_IT(&tim_2);
 }
 
-void timer_init_pwn()
-{
-	__HAL_RCC_GPIOI_CLK_ENABLE();
-	__HAL_RCC_TIM3_CLK_ENABLE();
+void timer_init_pwn() {
+	__HAL_RCC_GPIOI_CLK_ENABLE()
+	;
+	__HAL_RCC_TIM3_CLK_ENABLE()
+	;
 
-    tim_pwm.Instance               = TIM3;
-    tim_pwm.Init.Period            = 100;    //108000000 / 32400 = ... * X sec
-    tim_pwm.Init.Prescaler         = 1;
-    tim_pwm.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
-    tim_pwm.Init.CounterMode       = TIM_COUNTERMODE_UP;
+	tim_pwm.Instance = TIM3;
+	tim_pwm.Init.Period = 100;    //108000000 / 32400 = ... * X sec
+	tim_pwm.Init.Prescaler = 1;
+	tim_pwm.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+	tim_pwm.Init.CounterMode = TIM_COUNTERMODE_UP;
 
-    HAL_TIM_Base_Init(&tim_pwm);
+	HAL_TIM_Base_Init(&tim_pwm);
 
-    HAL_TIM_Base_Start(&tim_pwm);		//it is a little bit weird, but you have to call it too, before starting PWM
+	HAL_TIM_Base_Start(&tim_pwm); //it is a little bit weird, but you have to call it too, before starting PWM
 
-    HAL_TIM_PWM_Init(&tim_pwm);
+	HAL_TIM_PWM_Init(&tim_pwm);
 
-    sConfig.OCMode = TIM_OCMODE_PWM1;
-    sConfig.Pulse = 30;
+	sConfig.OCMode = TIM_OCMODE_PWM1;
+	sConfig.Pulse = 30;
 
-    HAL_TIM_PWM_ConfigChannel(&tim_pwm, &sConfig, TIM_CHANNEL_1);
+	HAL_TIM_PWM_ConfigChannel(&tim_pwm, &sConfig, TIM_CHANNEL_1);
 
-    HAL_TIM_PWM_Start(&tim_pwm, TIM_CHANNEL_1);
-
-	}
-
-
+	HAL_TIM_PWM_Start(&tim_pwm, TIM_CHANNEL_1);
+}
 
 int main(void) {
 
@@ -132,63 +149,27 @@ int main(void) {
 	BSP_LED_Init(LED_GREEN);                                // LED BSP INIT
 
 	timer_init();
-
 	timer_init_pwn();
-
 	led_init();
-
 	led_green_init();
-
 	button_init();
+	led_green_2_init();
 
-	/*		blue button init
-
-	 __HAL_RCC_GPIOI_CLK_ENABLE();						// enable the GPIOI clock
-
-	 blue_button.Pin = GPIO_PIN_11;						// the pin is the 11
-	 blue_button.Pull = GPIO_NOPULL;
-	 blue_button.Speed = GPIO_SPEED_FAST;   			// port speed to fast
-	 blue_button.Mode = GPIO_MODE_IT_RISING ;
-
-	 HAL_GPIO_Init(GPIOI, &blue_button);				// call the HAL init
-	 */
-//*****************
-
-//
-	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x1F, 0x00);
+	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x0F, 0x00);
 	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 	HAL_NVIC_SetPriority(TIM2_IRQn, 0x0F, 0x00);
 	HAL_NVIC_EnableIRQ(TIM2_IRQn);
 
-
-	printf("Hello hercules\n");   // print to hercules with uart
-
+	printf("***button press counter\r\n***");   // print to hercules with uart
 
 	while (1) {
-
-		// 	if (state == 0)
-		// 	{
-		// 		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
-		// 	}
-
-//	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
-//	HAL_Delay(500);
-//	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
-//	HAL_Delay(500);
-
-		/*
-		 external (green) LED:
-		 BSP_LED_On(LED_GREEN);
-		 HAL_Delay(500);
-		 BSP_LED_Off(LED_GREEN);
-		 HAL_Delay(500);
-		 */
 	}
 
 }   // end of main   {}
 
 // ******************************timer inicializalas
+
 void TIM2_IRQHandler() {
 	HAL_TIM_IRQHandler(&tim_2);
 }
@@ -197,73 +178,56 @@ void TIM3_IRQHandler() {
 	HAL_TIM_IRQHandler(&tim_pwm);
 }
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
-	printf("Hello timer\n");
-
-//	if(htim->Instance == TIM2)
-
-
-
-	if(tim2_state == 0){
-		printf("Hello if\n");
+	if (ignore_first_interrupt == 0) {
+		//	printf("Ignore first interrupt");
+		ignore_first_interrupt++;
+	} else if (tim2_state == 0 && led_counter < button_press_counter) {
+		if(info_printer == 0) {
+			printf("You pressed the button %d times\r\n", button_press_counter);
+			printf("Program is in blinking state, wait for %d sec\r\n", button_press_counter * 3);
+		info_printer++;
+		}
 		HAL_TIM_Base_Stop_IT(&tim_2);
-//		HAL_TIM_Base_DeInit(&tim_2);
-//		tim_2.Init.Period = 3333;
-//		HAL_TIM_Base_Init(&tim_2);
-		TIM2->ARR = 3333;
-		__HAL_TIM_SET_COUNTER(&tim_2, 0);  // visszaállítja a timer-t nullara
-
+		TIM2->ARR = 1111;
+		__HAL_TIM_SET_COUNTER(&tim_2, 0); // visszaállítja a timer-t nullara
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, GPIO_PIN_SET);
-//		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
-
 		HAL_TIM_Base_Start_IT(&tim_2);
-
+		led_counter++;
 		tim2_state = 1;
-	} else {
-		printf("Hello else\n");
+	} else if (tim2_state == 1 && led_counter < button_press_counter) {
 		HAL_TIM_Base_Stop_IT(&tim_2);
-
-//		HAL_TIM_Base_DeInit(&tim_2);
-//		tim_2.Init.Period = 9999;
-//		HAL_TIM_Base_Init(&tim_2);
-		TIM2->ARR = 3333;
-
-		__HAL_TIM_SET_COUNTER(&tim_2, 0);  // visszaállítja a timer-t nullara
-
+		TIM2->ARR = 2222;
+		__HAL_TIM_SET_COUNTER(&tim_2, 0); // visszaállítja a timer-t nullara
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, GPIO_PIN_RESET);
-//		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);
-
 		HAL_TIM_Base_Start_IT(&tim_2);
-
 		tim2_state = 0;
+	} else if (led_counter == button_press_counter) {
+		printf("timer off, program stop\r\n");
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, GPIO_PIN_RESET);
+		HAL_TIM_Base_Stop_IT(&tim_2);
+		HAL_TIM_Base_DeInit(&tim_2);
 	}
 }
 
 // ******************************
-
-// ******************************interrupt inicializalas
+// ******************************button interrupt inicializalas
 void EXTI15_10_IRQHandler() {
 	HAL_GPIO_EXTI_IRQHandler(blue_button.Pin);
 }
 
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	printf("Button is pressed and released\n");
 
-	if (state == 0) {
-		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
-		state = 1;
-	}
-	else {
-		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
-		state = 0;
-	}
+	HAL_TIM_Base_Stop_IT(&tim_2);
+	__HAL_TIM_SET_COUNTER(&tim_2, 0);  // visszaállítja a timer-t nullara
+	button_press_counter++;
+	HAL_TIM_Base_Start_IT(&tim_2);
+
 }
+
 // ******************************
-
-
-
-
 
 PUTCHAR_PROTOTYPE {
 
