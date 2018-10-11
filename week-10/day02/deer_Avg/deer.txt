@@ -1,0 +1,15 @@
+fawn, 9
+doe, 15
+doe, 14
+fawn, 10
+doe, 13
+doe, 14
+doe, 15
+buck, 17
+buck, 16
+buck, 19
+fawn, 18
+buck, 14
+buck, 17
+fawn, 18
+buck, 18
