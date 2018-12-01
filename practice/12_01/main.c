@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 int main()
 {
@@ -23,6 +24,17 @@ int main()
     printf("Name with pointer: %s\n", p_name);
     printf("Size of Name: %d\n", sizeof(name));
     printf("Size of Name with strlen: %d\n", strlen(name));
+    printf("\n****************different uintX_t types****************\n");
+
+    uint8_t number_one = 1;
+    uint16_t number_two = 1;
+    uint32_t number_three = 1;
+    uint64_t number_four = 1;
+
+    printf("Size of uint8_t: %d\n", sizeof(number_one));
+    printf("Size of uint16_t: %d\n", sizeof(number_two));
+    printf("Size of uint32_t: %d\n", sizeof(number_three));
+    printf("Size of uint64_t: %d\n", sizeof(number_four));
 
     return 0;
 }
