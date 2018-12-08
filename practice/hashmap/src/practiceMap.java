@@ -51,12 +51,11 @@ print out the key-value pairs with Singletonlist
         System.out.println("\n**********Print out key-values pairs with Collections.singletonList************\n");
         System.out.println(Collections.singletonList(playerRegister));
 /*
-print out the key-value pairs with Singletonlist
+print out the key-value pairs with EntrySet
  */
         System.out.println("\n**********Print out EntrySet**********\n");
 
         System.out.println(playerRegister.entrySet());
-
 /*
 remove one key-value pair, and prints out all the keys and values again
  */
@@ -70,7 +69,9 @@ remove one key-value pair, and prints out all the keys and values again
         for (Integer num : playerRegister.values()) {
             System.out.println(num);
         }
-
+/*
+print out key-value pairs after remove, with foreach & entrySet
+ */
         System.out.println("\n**********print out key-value pairs after remove, with foreach & entrySet**********\n");
         for (HashMap.Entry<String, Integer> pr : playerRegister.entrySet()) {
             System.out.println(pr.getKey() + " - " + pr.getValue());
